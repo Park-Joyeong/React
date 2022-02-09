@@ -1,0 +1,1 @@
+Simple react using only 1 page of html
