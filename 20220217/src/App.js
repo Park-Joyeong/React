@@ -1,34 +1,14 @@
-import React, { useState, useEffect } from "react";
-import './App.css';
+import { useEffect } from "react";
+import useAnyKeyToRender from "./components/useAnyKeyToRender";
 
 function App() {
-  const [val, set] = useState("");
-  const [phrase, setPhrase] = useState("example phrase");
-
-  const createPhrase = () => {
-    setPhrase(val);
-    set("");
-  }
+  useAnyKeyToRender();
 
   useEffect(() => {
-    console.log(`typing "${val}"`);
+    console.log("fresh render");
   });
 
-  useEffect(() => {
-    console.log(`saved phrase: "${phrase}"`);
-  });
-
-  return (
-    <>
-      <label>Favorite phrase:</label>
-      <input
-        value={val}
-        placeholder={phrase}
-        onChange={e => set(e.target.value)}
-      />
-      <button onClick={createPhrase}>send</button>
-    </>
-  );
+  return <h1>Open the console</h1>;
 }
 
 export default App;
