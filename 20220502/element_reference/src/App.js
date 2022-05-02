@@ -1,15 +1,20 @@
 import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [inputText, setInputText] = useState();
+  const [resultSpan, setResultSpan] = useState("");
   const checkValue = () => {
-    const result = document.getElementById("inputText").value;
-    document.getElementById("result").textContent = result;
+    setResultSpan(inputText);
+  }
+  const handleChange = (event) => {
+    setInputText(event.target.value);
   }
   return (
     <div>
-      <input type="text" id="inputText" />
+      <input type="text" onChange={handleChange}/>
       <button type="button" onClick={checkValue}>출력</button>
-      <h1>Result: <span id="result"></span></h1>
+      <h1>Result: <span>{resultSpan}</span></h1>
     </div>
   );
 }
